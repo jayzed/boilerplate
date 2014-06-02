@@ -7,12 +7,13 @@ module.exports = function(grunt) {
       watch: {
         js: {
           files: ['js/*.js'],
-          options: {
-            spawn: false,
-          }
+          tasks: ['concat']
         },
         css: {
-          files: ['css/main.scss', 'css/*/*.scss'],
+          files: [
+                    'css/main.scss', 
+                    'css/*/*.scss'
+                  ],
           tasks: ['sass']
         }
       },
@@ -23,18 +24,31 @@ module.exports = function(grunt) {
             style: 'expanded'
           },
           files: {                         
-            'css/main.css': 'css/main.scss'
+            'css/build/production.css': 'css/main.scss'
           }
+        }
+      },
+
+      concat: {
+        dist: {
+          src: [
+            'js/vendor/*.js',
+            'js/*.js'
+            
+          ],
+          dest: 'js/build/production.js'
         }
       }
 
+
     });
 
-    // 3. Where we tell Grunt we plan to use this plug-in.
+    //Load Plugins
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
-    // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['sass', 'watch']);
+    //Register Tasks
+    grunt.registerTask('default', ['concat', 'sass', 'watch']);
 
   };
