@@ -5,16 +5,25 @@ module.exports = function(grunt) {
       pkg: grunt.file.readJSON('package.json'),
 
       watch: {
-        js: {
-          files: ['js/*.js'],
-          tasks: ['concat']
+         options: {
+          livereload: true,
         },
+
+        html: {
+          files: ['*.html']
+        },
+
         css: {
           files: [
                     'css/main.scss', 
                     'css/*/*.scss'
                   ],
           tasks: ['sass']
+        },
+
+        js: {
+          files: ['js/*.js'],
+          tasks: ['concat']
         }
       },
 
@@ -23,6 +32,7 @@ module.exports = function(grunt) {
           options: {
             style: 'expanded'
           },
+
           files: {                         
             'css/build/production.css': 'css/main.scss'
           }
@@ -32,10 +42,11 @@ module.exports = function(grunt) {
       concat: {
         dist: {
           src: [
-            'js/vendor/*.js',
+            'js/vendor/jquery-2.1.1.min.js',
+            'js/vendor/bootstrap-3.1.1.min.js',
             'js/*.js'
-            
           ],
+
           dest: 'js/build/production.js'
         }
       }
