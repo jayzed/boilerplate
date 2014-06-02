@@ -5,5 +5,5 @@ This is my boilerplate to create boilerplate sites. It is based off of [HTML5 Bo
 - Add Bourbon
 - Add Font-Awesome
 - Grunt
-  - Watch for changes to SASS files and compile them
-  - Start server with grunt-contrib-connect
+  - Add livereload
+  - Figure out how to run php server
