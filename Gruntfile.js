@@ -9,8 +9,8 @@ module.exports = function(grunt) {
           livereload: true,
         },
 
-        html: {
-          files: ['**/*.html']
+        php: {
+          files: ['**/*.php']
         },
 
         css: {
@@ -49,14 +49,6 @@ module.exports = function(grunt) {
 
           dest: 'js/build/production.js'
         }
-      },
-      connect: {
-         server: {
-           options: {
-             open: {target: 'http://localhost:8000'},
-             livereload: true
-          }
-        }
       }
     });
 
@@ -64,9 +56,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-connect');
 
     //Register Tasks
-    grunt.registerTask('default', ['concat', 'sass', 'connect', 'watch']);
+    grunt.registerTask('default', ['concat', 'sass', 'watch']);
 
   };
