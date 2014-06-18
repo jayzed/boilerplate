@@ -8,11 +8,9 @@ Use with MAMP for best results
 - Bootstrap SASS 3.1.1
 - Jquery 2.1.1
 - Font Awesome 4.1.0
+- Bourbon 4.0.2
 
 ### Gruntfile
 - Concatenates .js files
 - Compiles .scss files
 - Watches for changes to .html, .scss, and .js files and automatically reloads the browser when those files are changed
-
-## To-Do
-- Add Bourbon
